@@ -106,11 +106,11 @@ Moreover, we also faced problem while dealing with the ivalid inputs. On pressin
 #### Adina Faraz:
 	Made Rock Paper Scissor that includes functions: 
 1. generateComputerChoice.
-2.  determineWinner.
+2. determineWinner.
 3. printChoices
 4. rock_paper.   
 
 	Functions in TIC TAC TOE: 
 1. file_func.
-2.  2. easy_move.
-3.  reset.
+2. easy_move.
+3. reset.
