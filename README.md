@@ -116,5 +116,3 @@ Moreover, we also faced problem while dealing with the ivalid inputs. On pressin
 3. reset.
 
 
-https://github.com/NUCES-Khi/pfproject-neuro-wizards/assets/142868034/285f2f9a-5d49-4e74-804d-5ed098c1ece7
-
