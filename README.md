@@ -52,5 +52,5 @@ The 2D arrays would be used in the tic tac toe game as the major part of this ga
 File can be used for input and output to save and load game states, allowing players to resume previous games. Store player scores or game statistics in files for long-term tracking.
 #### Functions:
 Functions will be made to improve readability and to avoid repetition of same code. They will also make the code precise and handle specific tasks. In all the three games functions will be made for each and every task.
-### Enhanced UI:
+#### Enhanced UI:
 We'll try to make our games look more attractive and user friendly by using some keywords. A colorfull game would be made in order to grasp user's attention and interest.
