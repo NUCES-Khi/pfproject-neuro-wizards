@@ -3,7 +3,8 @@
 ### part 1
 
 
-https://github.com/NUCES-Khi/pfproject-neuro-wizards/assets/142868034/f11d4b60-5d17-48b7-bb7c-c6da1880863c
+https://github.com/NUCES-Khi/pfproject-neuro-wizards/assets/142868034/7a06f0a0-1d21-4387-8db2-6e48de65f813
+
 
 ### part 2
 
