@@ -14,7 +14,7 @@
 
 ### Course title: Programming fundamentals [CS1002]
 ### Course instructor: Farooq Zaidi.
-### Date of submission: 06-10-2023
+#### Date of submission: 09-12-2023
 
 # Project Illustration:
 
@@ -79,18 +79,18 @@ Moreover, we also faced problem while dealing with the ivalid inputs. On pressin
 
 ## Contributions:
 
-#### Abdul Rehman Azam: 
+### Abdul Rehman Azam: 
 	Implementation of AI algorithm in TIC TAC TOE that includes functions: 
 1. computer.
-2.  bestmove.
-3. Minimax.
+2. Bestmove.
+3. Minimax Algorithm.
 4. Evaluate.
 5. Isvalid.
 6. Winner.
 
 	Making UI to look more attractive and user friendly.
 
-#### S. Sara Ali: 
+### S. Sara Ali: 
 	Made Guessing The Number Game using functions: 
 1. guessing_the_number.
 2.  RandomNumber.
@@ -103,7 +103,7 @@ Moreover, we also faced problem while dealing with the ivalid inputs. On pressin
 4. save.
 5. tictac_name.
 
-#### Adina Faraz:
+### Adina Faraz:
 	Made Rock Paper Scissor that includes functions: 
 1. generateComputerChoice.
 2. determineWinner.
