@@ -54,3 +54,63 @@ File can be used for input and output to save and load game states, allowing pla
 Functions will be made to improve readability and to avoid repetition of same code. They will also make the code precise and handle specific tasks. In all the three games functions will be made for each and every task.
 #### Enhanced UI:
 We'll try to make our games look more attractive and user friendly by using some keywords. A colorfull game would be made in order to grasp user's attention and interest.
+
+## Main Modes Used:
+
+Functions (recursive, user defined).
+
+Artificial Intelligence algorithm.
+
+Conditional structures.
+
+Filing.
+
+Enhancing UI.
+
+
+## Data Structure and Main Logic and Algorithm used:
+
+Implementation of AI algorithm to make our work more efficient. Minimax algo is applied to the game which is a backtracking algorithm that recursively checks all the possible moves that the computer can make during the game and then the best move will be chosen among those steps. Thereafter the computer will make its move based on the best move suggested by minimax algo. This algo is used in our tic tac toe game (player vs computer) to make the game systematic.
+
+## Major Problem Faced:
+
+Overall the problem was faced in the implimentation of MiniMax Algorithm as it is an AI Algorithm therefore we all faced problem firstly, in understanding this algorithm. Then how to apply this algorithm in our game and then the error handling problem. Some times we were even not getting the desired results. IN nutshell the use of AI algorithm was the main difficul and major problem we faced in this project. 
+Moreover, we also faced problem while dealing with the ivalid inputs. On pressing many other characters the output is not showing invalid input or somthing like that in all three games or if in tic tac toe the number entered by user is not availible then too it has to show invalid input. So basically in our overall project the major problem faced by us were these two.
+
+## Contributions:
+
+#### Abdul Rehman Azam: 
+	Implementation of AI algorithm in TIC TAC TOE that includes functions: 
+1. computer.
+2.  bestmove.
+3. Minimax.
+4. Evaluate.
+5. Isvalid.
+6. Winner.
+
+	Making UI to look more attractive and user friendly.
+
+#### S. Sara Ali: 
+	Made Guessing The Number Game using functions: 
+1. guessing_the_number.
+2.  RandomNumber.
+3.  isCorrect. 
+
+	Functions in TIC TAC TOE: 
+1. Multiplayer.
+2. isBoardFull. 
+3. printBoard. 
+4. save.
+5. tictac_name.
+
+#### Adina Faraz:
+	Made Rock Paper Scissor that includes functions: 
+1. generateComputerChoice.
+2.  determineWinner.
+3. printChoices
+4. rock_paper.   
+
+	Functions in TIC TAC TOE: 
+1. file_func.
+2.  2. easy_move.
+3.  reset.
