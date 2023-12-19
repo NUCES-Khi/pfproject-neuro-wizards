@@ -222,3 +222,229 @@ int evaluate(char board[SIZE][SIZE])
         return 2; // game is going on
     }
 }
+
+// minimax algorithm which is recursive function, calculates the best input by checking the whole game (ARTIFICIAL INTELLIGENCE)
+int minimax(char board[SIZE][SIZE], int depth, bool isMax)
+{
+    int score = evaluate(board);
+    if (score != 2)
+    {
+        return score;
+    }
+    char ch;
+    if (isMax)
+    {
+        int max = -1000;
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                if (isValid(board, i, j))
+                {
+                    ch = board[i][j];
+                    board[i][j] = 'X';
+                    int current = minimax(board, depth + 1, !isMax);
+                    max = (current > max) ? current : max;
+                    board[i][j] = ch;
+                }
+            }
+        }
+        return max;
+    }
+    else
+    {
+        int min = 1000;
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                if (isValid(board, i, j))
+                {
+                    ch = board[i][j];
+                    board[i][j] = 'O';
+                    int current = minimax(board, depth + 1, !isMax);
+                    min = (current < min) ? current : min;
+                    board[i][j] = ch;
+                }
+            }
+        }
+        return min;
+    }
+}
+
+// the turn of the best_move which calls minimax algo to find its input
+void best_move(char board[SIZE][SIZE])
+{
+    int best = -1000, row = -1, col = -1;
+    char ch;
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            if (isValid(board, i, j))
+            {
+                ch = board[i][j];
+                board[i][j] = 'X';
+                int move = minimax(board, 0, 0);
+                board[i][j] = ch;
+
+                if (move > best)
+                {
+                    row = i;
+                    col = j;
+                    best = move;
+                }
+            }
+        }
+    }
+    printf("computer" RED " (X) " RESET "move: %d\n", (row * SIZE) + (col + 1));
+    board[row][col] = 'X';
+}
+
+void easy_move(char board[SIZE][SIZE])
+{
+    int move, row, col;
+    do
+    {
+        move = (rand() % 9) + 1;
+        row = (move - 1) / 3;
+        col = (move - 1) % 3;
+    } while (isValid(board, row, col) == 0);
+
+    board[row][col] = 'X';
+    printf("Computer" RED " (x) " RESET "move %d\n", move);
+}
+
+void save(char board[SIZE][SIZE])
+{
+    FILE *fsave = fopen("Store.txt", "w+");
+    if (fsave == NULL)
+    {
+        printf(RED "Error opening file\n" RESET);
+        return;
+    }
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            fprintf(fsave, "%c ", board[i][j]);
+        }
+    }
+
+    printf(GREEN "Game saved successfully!\n" RESET);
+    Sleep(1000);
+    fclose(fsave);
+    return;
+}
+
+void load(char board[SIZE][SIZE])
+{
+    FILE *fresume = fopen("Store.txt", "r+");
+    if (fresume == NULL)
+    {
+        printf(RED "Error opening file\n" RESET);
+        return;
+    }
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            fscanf(fresume, "%c ", &board[i][j]);
+        }
+    }
+
+    printf(GREEN "Previous game loaded successfully!\n" RESET);
+    Sleep(1000);
+    printBoard(board);
+    return;
+}
+void reset(char board[SIZE][SIZE])
+{
+    save(board); // Save the current state before resetting
+
+    for (int i = 0, k = 1; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++, k++)
+        {
+            board[i][j] = k + '0'; // Convert the integer to character
+        }
+    }
+    printf(GREEN "Game reset successfully!\n" RESET);
+    Sleep(1000);
+    printBoard(board);
+    return;
+}
+
+void tictac_name()
+{
+    printf(BLUE "^^^^^^^^^^" RESET " WELCOME TO " RED "TIC " BLUE "TAC " GREEN "BOARD" RESET " BATTLE " BLUE "^^^^^^^^^^^\n\n" RESET);
+}
+
+// when the player is playing with computer
+void computer(char board[SIZE][SIZE], int mode)
+{
+    tictac_name();
+    printBoard(board);
+    while (1)
+    {
+        char move[10];
+        int row, col;
+        printf("Enter your" BLUE " (O) " RESET "move: ");
+        scanf("%s", move);
+
+        if (strcmp(move, "s") == 0)
+        {
+            save(board);
+            continue;
+        }
+        else if (strcmp(move, "l") == 0)
+        {
+            load(board);
+            continue;
+        }
+        else if (strcmp(move, "e") == 0)
+        {
+            return;
+        }
+        else if (strcmp(move, "r") == 0)
+        {
+            reset(board);
+            continue;
+        }
+
+        int moveInt = atoi(move);
+        row = (moveInt - 1) / 3;
+        col = (moveInt - 1) % 3;
+
+        if (isValid(board, row, col))
+        {
+            if (row < 0 || col < 0 || row >= SIZE || col >= SIZE)
+            {
+                printf(YELLOW "Invalid move. Try again. \n" RESET);
+                continue;
+            }
+
+            board[row][col] = 'O';
+
+            if (winner(board, 'O'))
+            {
+                system("cls");
+                tictac_name();
+                printBoard(board);
+                printf(GREEN "Congratulations you won!\n " RESET);
+                break;
+            }
+
+            if (isBoardFull(board))
+            {
+                printf(BLUE "Game is draw\n" RESET);
+                break;
+            }
+            printBoard(board);
+            printf("Computer loading...");
+            Sleep(1000);
+
+            system("cls");
+
+            tictac_name();
